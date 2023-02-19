@@ -1,0 +1,24 @@
+/*
+ * Executando comandos através da comunicação serial
+ * Professor Helio Magalhaes
+ */
+
+int leitor; //criando uma variável que irá receber um valor 
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode (13, OUTPUT); //configurando o pino 13 como saida
+  Serial.begin(9600);
+
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+if (Serial.available()){//esta estrutura evita o acionamento indevido do Led ou outros dispositivos
+  leitor = Serial.read(); //armazenando a tecla pressionada na variável leitor
+  if (leitor =='1'){ //se tecla 1 pressionada
+    digitalWrite (13, !digitalRead(13));
+  }
+}
+}

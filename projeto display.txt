@@ -1,0 +1,139 @@
+/*******************************************************************************
+*
+*    Projeto 54: Configurando um Display de 7 segmentos
+*                 http://squids.com.br/arduino                
+*
+*******************************************************************************/
+const int A = 7; // Primeiramente setamos os 7 pinos dos segmentos
+const int B = 6;
+const int C = 4;
+const int D = 2;
+const int E = 1;
+const int F = 9;
+const int G = 10;
+
+const int PT = 5; // setemaos o ponto do display
+
+boolean ligaBotao = false;
+
+// Variaveis liga e desliga p/ display 7 segmentos
+const int l = 1, d = 0; // Display 7 segmentos (catodo comum)
+//const int l = 0, d = 1; // Display 7 segmentos (anodo comum)
+
+void setup(){
+pinMode(A, OUTPUT); // seta todos as portas que estão os leds do display como saída
+pinMode(B, OUTPUT);
+pinMode(C, OUTPUT);
+pinMode(D, OUTPUT);
+pinMode(E, OUTPUT);
+pinMode(F, OUTPUT);
+pinMode(G, OUTPUT);
+pinMode(PT, OUTPUT);
+}
+
+void loop(){
+digitalWrite(A, l); //acende os leds que representam o número 0
+digitalWrite(B, l);
+digitalWrite(C, l);
+digitalWrite(D, l);
+digitalWrite(E, l);
+digitalWrite(F, l);
+digitalWrite(G, d);
+blinkDP(); // Função para piscar o ponto 2 vezes
+
+digitalWrite(A, 0); //acende os leds que representam o número 1
+digitalWrite(B, l);
+digitalWrite(C, l);
+digitalWrite(D, d);
+digitalWrite(E, 0);
+digitalWrite(F, 0);
+digitalWrite(G, 0);
+blinkDP();
+
+digitalWrite(A, l); //acende os leds que representam o número 2
+digitalWrite(B, l);
+digitalWrite(C, 0);
+digitalWrite(D, l);
+digitalWrite(E, l);
+digitalWrite(F, 0);
+digitalWrite(G, l);
+blinkDP();
+
+digitalWrite(A, l); //acende os leds que representam o número 3
+digitalWrite(B, l);
+digitalWrite(C, l);
+digitalWrite(D, l);
+digitalWrite(E, 0);
+digitalWrite(F, d);
+digitalWrite(G, l);
+blinkDP();
+
+digitalWrite(A, 0); //acende os leds que representam o número 4
+digitalWrite(B, l);
+digitalWrite(C, l);
+digitalWrite(D, 0);
+digitalWrite(E, 0);
+digitalWrite(F, l);
+digitalWrite(G, l);
+blinkDP();
+
+digitalWrite(A, l); //acende os leds que representam o número 5
+digitalWrite(B, 0);
+digitalWrite(C, l);
+digitalWrite(D, l);
+digitalWrite(E, 0);
+digitalWrite(F, l);
+digitalWrite(G, l);
+blinkDP();
+
+digitalWrite(A, 0); //acende os leds que representam o número 6
+digitalWrite(B, 0);
+digitalWrite(C, l);
+digitalWrite(D, l);
+digitalWrite(E, l);
+digitalWrite(F, l);
+digitalWrite(G, l);
+blinkDP();
+//delay(1000); //aguarda 1 segundo para mostrar próximo número
+digitalWrite(A, l); //acende os leds que representam o número 7
+digitalWrite(B, l);
+digitalWrite(C, l);
+digitalWrite(D, 0);
+digitalWrite(E, 0);
+digitalWrite(F, 0);
+digitalWrite(G, 0);
+blinkDP();
+//delay(1000); //aguarda 1 segundo para mostrar próximo número
+digitalWrite(A, l); //acende os leds que representam o número 8
+digitalWrite(B, l);
+digitalWrite(C, l);
+digitalWrite(D, l);
+digitalWrite(E, l);
+digitalWrite(F, l);
+digitalWrite(G, l);
+blinkDP();
+
+digitalWrite(A, l); //acende os leds que representam o número 9
+digitalWrite(B, l);
+digitalWrite(C, l);
+digitalWrite(D, 0);
+digitalWrite(E, 0);
+digitalWrite(F, l);
+digitalWrite(G, l);
+blinkDP();
+//delay(1000); //aguarda 1 segundo para mostrar próximo número
+}
+
+void blinkDP() { // Faz o DP piscar 3 vezes.
+
+  for (int i=0; i<=3; i++) {
+    if (ligaBotao)  {
+      digitalWrite(PT, l);
+    }   else  {
+      digitalWrite(PT, 0);
+    }
+    ligaBotao = !ligaBotao;
+    delay(1000);
+  }
+  
+}

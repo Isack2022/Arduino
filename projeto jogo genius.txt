@@ -1,0 +1,783 @@
+#include <LiquidCrystal.h>
+#include<math.h>
+LiquidCrystal lcd(8,9,10,11,12,13);
+int bt1=4,bt2=5,bt3=6,bt4=7,ledaz=1,ledvd=2,ledvm=3,a=0,max=0;
+
+
+void setup()
+{
+lcd.begin(16,2);
+pinMode(bt1,INPUT);
+pinMode(bt2,INPUT);
+pinMode(bt3,INPUT); 
+pinMode(bt4,INPUT);
+pinMode(ledaz,OUTPUT);
+pinMode(ledvd,OUTPUT);
+pinMode(ledvm,OUTPUT);
+  
+lcd.setCursor(0,0);
+lcd.print("Atual:       ");
+lcd.setCursor(0,1);
+lcd.print("Melhor:      ");
+  
+  
+  
+}
+
+void loop()
+{
+  err:
+  if(a>max)
+  { max=a;
+  }
+  
+  lcd.setCursor(8,1);
+   lcd.print(max);
+  
+  a=0;
+  while(digitalRead(bt4)==0) 
+  {}
+    digitalWrite(ledaz,1);
+    delay(1000);
+    digitalWrite(ledaz,0);
+  
+  
+  while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+  
+  
+  if ((digitalRead(bt2)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt1)==1)
+      {
+       digitalWrite(ledaz,1);
+       delay(50);
+       digitalWrite(ledaz,0);
+       lcd.setCursor(7,0);
+       lcd.print("1");
+      }
+
+delay(2000);
+  a=1;
+////////////////////////////////////////////////////////////////
+
+
+digitalWrite(ledaz,1);
+    delay(500);
+    digitalWrite(ledaz,0);
+  
+  digitalWrite(ledvd,1);
+    delay(500);
+    digitalWrite(ledvd,0);
+
+
+ while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt2)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt1)==1)
+      {
+       digitalWrite(ledaz,1);
+       delay(50);
+       digitalWrite(ledaz,0);
+       lcd.setCursor(7,0);
+       lcd.print("1");
+         
+         while(digitalRead(bt1)==1)
+         {}
+      }
+
+
+
+while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt1)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+      goto err;
+      }
+    
+       if(digitalRead(bt2)==1)
+      {
+       digitalWrite(ledvd,1);
+       delay(50);
+       digitalWrite(ledvd,0);
+       lcd.setCursor(7,0);
+       lcd.print("2");
+      }
+delay(2000);
+  a=2;
+/////////////////////////////////////////////////////////////////
+
+    digitalWrite(ledaz,1);
+    delay(500);
+    digitalWrite(ledaz,0);
+  
+    digitalWrite(ledvd,1);
+    delay(500);
+    digitalWrite(ledvd,0);
+   
+    digitalWrite(ledvm,1);
+    delay(500);
+    digitalWrite(ledvm,0);
+
+
+
+ while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt2)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt1)==1)
+      {
+       digitalWrite(ledaz,1);
+       delay(50);
+       digitalWrite(ledaz,0);
+       lcd.setCursor(7,0);
+       lcd.print("2");
+         
+         while(digitalRead(bt1)==1)
+         {}
+      }
+
+
+
+while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt1)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+      goto err;
+      }
+    
+       if(digitalRead(bt2)==1)
+      {
+       digitalWrite(ledvd,1);
+       delay(50);
+       digitalWrite(ledvd,0);
+       lcd.setCursor(7,0);
+       lcd.print("2");
+      }
+
+while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+ if ((digitalRead(bt2)==1)||(digitalRead(bt1)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt3)==1)
+      {
+       digitalWrite(ledvm,1);
+       delay(50);
+       digitalWrite(ledvm,0);
+       lcd.setCursor(7,0);
+       lcd.print("3");
+         
+         while(digitalRead(bt3)==1)
+         {}
+      }
+  delay(2000);
+  a=3;
+  
+////////////////////////////////////////////////////////////////////////  
+
+    digitalWrite(ledaz,1);
+    delay(500);
+    digitalWrite(ledaz,0);
+  
+    digitalWrite(ledvd,1);
+    delay(500);
+    digitalWrite(ledvd,0);
+   
+    digitalWrite(ledvm,1);
+    delay(500);
+    digitalWrite(ledvm,0);
+  
+     digitalWrite(ledaz,1);
+    delay(500);
+    digitalWrite(ledaz,0);
+
+
+
+ while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt2)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt1)==1)
+      {
+       digitalWrite(ledaz,1);
+       delay(50);
+       digitalWrite(ledaz,0);
+       lcd.setCursor(7,0);
+       lcd.print("3");
+         
+         while(digitalRead(bt1)==1)
+         {}
+      }
+
+
+
+while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt1)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+      goto err;
+      }
+    
+       if(digitalRead(bt2)==1)
+      {
+       digitalWrite(ledvd,1);
+       delay(50);
+       digitalWrite(ledvd,0);
+       lcd.setCursor(7,0);
+       lcd.print("3");
+      }
+
+while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+ if ((digitalRead(bt2)==1)||(digitalRead(bt1)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt3)==1)
+      {
+       digitalWrite(ledvm,1);
+       delay(50);
+       digitalWrite(ledvm,0);
+       lcd.setCursor(7,0);
+       lcd.print("3");
+         
+         while(digitalRead(bt3)==1)
+         {}
+      }
+  while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+ if ((digitalRead(bt2)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt1)==1)
+      {
+       digitalWrite(ledaz,1);
+       delay(50);
+       digitalWrite(ledaz,0);
+       lcd.setCursor(7,0);
+       lcd.print("4");
+         
+         while(digitalRead(bt1)==1)
+         {}
+      }
+  delay(2000);
+   a=4;
+///////////////////////////////////////////////////////////////////////////////
+    digitalWrite(ledaz,1);
+    delay(500);
+    digitalWrite(ledaz,0);
+  
+    digitalWrite(ledvd,1);
+    delay(500);
+    digitalWrite(ledvd,0);
+   
+    digitalWrite(ledvm,1);
+    delay(500);
+    digitalWrite(ledvm,0);
+  
+    digitalWrite(ledaz,1);
+    delay(500);
+    digitalWrite(ledaz,0);
+  
+    digitalWrite(ledvm,1);
+    delay(500);
+    digitalWrite(ledvm,0);
+
+
+
+ while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt2)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt1)==1)
+      {
+       digitalWrite(ledaz,1);
+       delay(50);
+       digitalWrite(ledaz,0);
+       lcd.setCursor(7,0);
+       lcd.print("4");
+         
+         while(digitalRead(bt1)==1)
+         {}
+      }
+
+
+
+while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt1)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+      goto err;
+      }
+    
+       if(digitalRead(bt2)==1)
+      {
+       digitalWrite(ledvd,1);
+       delay(50);
+       digitalWrite(ledvd,0);
+       lcd.setCursor(7,0);
+       lcd.print("4");
+      }
+
+while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+ if ((digitalRead(bt2)==1)||(digitalRead(bt1)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt3)==1)
+      {
+       digitalWrite(ledvm,1);
+       delay(50);
+       digitalWrite(ledvm,0);
+       lcd.setCursor(7,0);
+       lcd.print("4");
+         
+         while(digitalRead(bt3)==1)
+         {}
+      }
+  while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+ if ((digitalRead(bt2)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt1)==1)
+      {
+       digitalWrite(ledaz,1);
+       delay(50);
+       digitalWrite(ledaz,0);
+       lcd.setCursor(7,0);
+       lcd.print("4");
+         
+         while(digitalRead(bt1)==1)
+         {}
+      }
+    while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+ if ((digitalRead(bt2)==1)||(digitalRead(bt1)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt3)==1)
+      {
+       digitalWrite(ledvm,1);
+       delay(50);
+       digitalWrite(ledvm,0);
+       lcd.setCursor(7,0);
+       lcd.print("5");
+         
+         while(digitalRead(bt3)==1)
+         {}
+      }
+  delay(2000);
+   a=5;
+/////////////////////////////////////////////////////////////////////////////////////
+    digitalWrite(ledaz,1);
+    delay(500);
+    digitalWrite(ledaz,0);
+  
+    digitalWrite(ledvd,1);
+    delay(500);
+    digitalWrite(ledvd,0);
+   
+    digitalWrite(ledvm,1);
+    delay(500);
+    digitalWrite(ledvm,0);
+  
+    digitalWrite(ledaz,1);
+    delay(500);
+    digitalWrite(ledaz,0);
+  
+    digitalWrite(ledvm,1);
+    delay(500);
+    digitalWrite(ledvm,0);
+  
+    digitalWrite(ledvd,1);
+    delay(500);
+    digitalWrite(ledvd,0);
+
+
+
+ while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt2)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt1)==1)
+      {
+       digitalWrite(ledaz,1);
+       delay(50);
+       digitalWrite(ledaz,0);
+       lcd.setCursor(7,0);
+       lcd.print("5");
+         
+         while(digitalRead(bt1)==1)
+         {}
+      }
+
+
+
+while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt1)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+      goto err;
+      }
+    
+       if(digitalRead(bt2)==1)
+      {
+       digitalWrite(ledvd,1);
+       delay(50);
+       digitalWrite(ledvd,0);
+       lcd.setCursor(7,0);
+       lcd.print("5");
+      }
+
+while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+ if ((digitalRead(bt2)==1)||(digitalRead(bt1)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt3)==1)
+      {
+       digitalWrite(ledvm,1);
+       delay(50);
+       digitalWrite(ledvm,0);
+       lcd.setCursor(7,0);
+       lcd.print("5");
+         
+         while(digitalRead(bt3)==1)
+         {}
+      }
+  while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+ if ((digitalRead(bt2)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt1)==1)
+      {
+       digitalWrite(ledaz,1);
+       delay(50);
+       digitalWrite(ledaz,0);
+       lcd.setCursor(7,0);
+       lcd.print("5");
+         
+         while(digitalRead(bt1)==1)
+         {}
+      }
+    while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+ if ((digitalRead(bt2)==1)||(digitalRead(bt1)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt3)==1)
+      {
+       digitalWrite(ledvm,1);
+       delay(50);
+       digitalWrite(ledvm,0);
+       lcd.setCursor(7,0);
+       lcd.print("5");
+         
+         while(digitalRead(bt3)==1)
+         {}
+      }
+  while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt1)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+      goto err;
+      }
+    
+       if(digitalRead(bt2)==1)
+      {
+       digitalWrite(ledvd,1);
+       delay(50);
+       digitalWrite(ledvd,0);
+       lcd.setCursor(7,0);
+       lcd.print("6");
+      }
+  delay(2000);
+   a=6;
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+ digitalWrite(ledaz,1);
+    delay(500);
+    digitalWrite(ledaz,0);
+  
+    digitalWrite(ledvd,1);
+    delay(500);
+    digitalWrite(ledvd,0);
+   
+    digitalWrite(ledvm,1);
+    delay(500);
+    digitalWrite(ledvm,0);
+  
+    digitalWrite(ledaz,1);
+    delay(500);
+    digitalWrite(ledaz,0);
+  
+    digitalWrite(ledvm,1);
+    delay(500);
+    digitalWrite(ledvm,0);
+  
+    digitalWrite(ledvd,1);
+    delay(500);
+    digitalWrite(ledvd,0);
+  
+    digitalWrite(ledaz,1);
+    delay(500);
+    digitalWrite(ledaz,0);
+  
+
+
+ while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt2)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt1)==1)
+      {
+       digitalWrite(ledaz,1);
+       delay(50);
+       digitalWrite(ledaz,0);
+       lcd.setCursor(7,0);
+       lcd.print("6");
+         
+         while(digitalRead(bt1)==1)
+         {}
+      }
+
+
+
+while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt1)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+      goto err;
+      }
+    
+       if(digitalRead(bt2)==1)
+      {
+       digitalWrite(ledvd,1);
+       delay(50);
+       digitalWrite(ledvd,0);
+       lcd.setCursor(7,0);
+       lcd.print("6");
+      }
+
+while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+ if ((digitalRead(bt2)==1)||(digitalRead(bt1)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt3)==1)
+      {
+       digitalWrite(ledvm,1);
+       delay(50);
+       digitalWrite(ledvm,0);
+       lcd.setCursor(7,0);
+       lcd.print("6");
+         
+         while(digitalRead(bt3)==1)
+         {}
+      }
+  while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+ if ((digitalRead(bt2)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt1)==1)
+      {
+       digitalWrite(ledaz,1);
+       delay(50);
+       digitalWrite(ledaz,0);
+       lcd.setCursor(7,0);
+       lcd.print("6");
+         
+         while(digitalRead(bt1)==1)
+         {}
+      }
+    while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+ if ((digitalRead(bt2)==1)||(digitalRead(bt1)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt3)==1)
+      {
+       digitalWrite(ledvm,1);
+       delay(50);
+       digitalWrite(ledvm,0);
+       lcd.setCursor(7,0);
+       lcd.print("6");
+         
+         while(digitalRead(bt3)==1)
+         {}
+      }
+  while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+if ((digitalRead(bt1)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+      goto err;
+      }
+    
+       if(digitalRead(bt2)==1)
+      {
+       digitalWrite(ledvd,1);
+       delay(50);
+       digitalWrite(ledvd,0);
+       lcd.setCursor(7,0);
+       lcd.print("6");
+      }
+    while((digitalRead(bt2)==0)&&(digitalRead(bt3)==0)&&(digitalRead(bt1)==0))
+  {}
+
+ if ((digitalRead(bt2)==1)||(digitalRead(bt3)==1))
+      {
+      lcd.setCursor(0,0);
+      lcd.print("errou       " );
+    goto err;
+      }
+    
+       if(digitalRead(bt1)==1)
+      {
+       digitalWrite(ledaz,1);
+       delay(50);
+       digitalWrite(ledaz,0);
+       lcd.setCursor(7,0);
+       lcd.print("6");
+         
+         while(digitalRead(bt1)==1)
+         {}
+      }
+  delay(1000);
+   a=7;
+
+
+
+
+
+
+}
